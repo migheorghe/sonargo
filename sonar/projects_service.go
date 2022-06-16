@@ -88,10 +88,11 @@ func (s *ProjectsService) BulkUpdateKey(opt *ProjectsBulkUpdateKeyOption) (v *Pr
 }
 
 type ProjectsCreateOption struct {
-	Branch     string `url:"branch,omitempty"`     // Description:"SCM Branch of the project. The key of the project will become key:branch, for instance 'SonarQube:branch-5.0'",ExampleValue:"branch-5.0"
-	Name       string `url:"name,omitempty"`       // Description:"Name of the project",ExampleValue:"SonarQube"
-	Project    string `url:"project,omitempty"`    // Description:"Key of the project",ExampleValue:"my_project"
-	Visibility string `url:"visibility,omitempty"` // Description:"Whether the created project should be visible to everyone, or only specific user/groups.<br/>If no visibility is specified, the default project visibility of the organization will be used.",ExampleValue:""
+	Organization string `url:"organization"`
+	Branch       string `url:"branch,omitempty"`     // Description:"SCM Branch of the project. The key of the project will become key:branch, for instance 'SonarQube:branch-5.0'",ExampleValue:"branch-5.0"
+	Name         string `url:"name"`                 // Description:"Name of the project",ExampleValue:"SonarQube"
+	Project      string `url:"project"`              // Description:"Key of the project",ExampleValue:"my_project"
+	Visibility   string `url:"visibility,omitempty"` // Description:"Whether the created project should be visible to everyone, or only specific user/groups.<br/>If no visibility is specified, the default project visibility of the organization will be used.",ExampleValue:""
 }
 
 // Create Create a project.<br/>Requires 'Create Projects' permission
