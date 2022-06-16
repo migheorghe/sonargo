@@ -114,8 +114,9 @@ func (s *ProjectsService) Create(opt *ProjectsCreateOption) (v *ProjectsCreateOb
 }
 
 type ProjectsDeleteOption struct {
-	Project   string `url:"project,omitempty"`   // Description:"Project key",ExampleValue:"my_project"
-	ProjectId string `url:"projectId,omitempty"` // Description:"Project ID",ExampleValue:"ce4c03d6-430f-40a9-b777-ad877c00aa4d"
+	Organization string `url:"organization"`
+	Project      string `url:"project,omitempty"`   // Description:"Project key",ExampleValue:"my_project"
+	ProjectId    string `url:"projectId,omitempty"` // Description:"Project ID",ExampleValue:"ce4c03d6-430f-40a9-b777-ad877c00aa4d"
 }
 
 // Delete Delete a project.<br> Requires 'Administer System' permission or 'Administer' permission on the project.
