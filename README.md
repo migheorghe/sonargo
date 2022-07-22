@@ -1,4 +1,4 @@
-# sonargo
+# sonargo - custom repo
 
 ![GitHub version](https://img.shields.io/badge/version-v0.0.1-brightgreen.svg?logo=appveyor&longCache=true&style=flat)
 ![](https://sonarcloud.io/api/project_badges/measure?project=magicsong_sonargo&metric=alert_status)  ![](https://goreportcard.com/badge/github.com/magicsong/sonargo)
