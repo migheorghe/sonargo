@@ -174,12 +174,13 @@ func (s *UserGroupsService) Update(opt *UserGroupsUpdateOption) (v *UserGroupsCr
 }
 
 type UserGroupsUsersOption struct {
-	Id       int    `url:"id,omitempty"`       // Description:"Group id",ExampleValue:"42"
-	Name     string `url:"name,omitempty"`     // Description:"Group name",ExampleValue:"sonar-administrators"
-	P        int    `url:"p,omitempty"`        // Description:"1-based page number",ExampleValue:"42"
-	Ps       int    `url:"ps,omitempty"`       // Description:"Page size. Must be greater than 0.",ExampleValue:"20"
-	Q        string `url:"q,omitempty"`        // Description:"Limit search to names or logins that contain the supplied string.",ExampleValue:"freddy"
-	Selected string `url:"selected,omitempty"` // Description:"Depending on the value, show only selected items (selected=selected), deselected items (selected=deselected), or all items with their selection status (selected=all).",ExampleValue:""
+	Id           int    `url:"id,omitempty"`           // Description:"Group id",ExampleValue:"42"
+	Organization string `url:"organization,omitempty"` // Description:"The name of the organization"
+	Name         string `url:"name,omitempty"`         // Description:"Group name",ExampleValue:"sonar-administrators"
+	P            int    `url:"p,omitempty"`            // Description:"1-based page number",ExampleValue:"42"
+	Ps           int    `url:"ps,omitempty"`           // Description:"Page size. Must be greater than 0.",ExampleValue:"20"
+	Q            string `url:"q,omitempty"`            // Description:"Limit search to names or logins that contain the supplied string.",ExampleValue:"freddy"
+	Selected     string `url:"selected,omitempty"`     // Description:"Depending on the value, show only selected items (selected=selected), deselected items (selected=deselected), or all items with their selection status (selected=all).",ExampleValue:""
 }
 
 // Users Search for users with membership information with respect to a group.<br>Requires the following permission: 'Administer System'.
