@@ -42,18 +42,16 @@ type DefaultTemplate struct {
 }
 
 type PermissionsUser struct {
-	Email      string   `json:"email,omitempty"`
-	Login      string   `json:"login,omitempty"`
-	Name       string   `json:"name,omitempty"`
-	Avatar     string   `json:"avatar,omitempty"`
-	Permission []string `json:"permissions,omitempty"`
+	Email       string   `json:"email,omitempty"`
+	Login       string   `json:"login,omitempty"`
+	Name        string   `json:"name,omitempty"`
+	Avatar      string   `json:"avatar,omitempty"`
+	Permissions []string `json:"permissions,omitempty"`
 }
 
 type PermissionsUsersObject struct {
-	Users []*PermissionsUser `json:"users,omitempty"`
-	Total int                `json:"total,omitempty"`
-	P     int                `json:"p,omitempty"`
-	Ps    int                `json:"ps,omitempty"`
+	Paging *Paging            `json:"paging,omitempty"`
+	Users  []*PermissionsUser `json:"users,omitempty"`
 }
 
 type PermissionsAddGroupOption struct {
