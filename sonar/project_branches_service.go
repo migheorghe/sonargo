@@ -18,6 +18,11 @@ type Branch struct {
 	Name         string  `json:"name,omitempty"`
 	Status       *Status `json:"status,omitempty"`
 	Type         string  `json:"type,omitempty"`
+	Commit       *Commit `json:"commit,omitempty"`
+}
+
+type Commit struct {
+	Sha string `json:"sha,omitempty"`
 }
 
 type Status struct {
