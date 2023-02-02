@@ -449,8 +449,8 @@ type PermissionsUsersOption struct {
 	Q            string `url:"q,omitempty"`            // Description:"Limit search to user names that contain the supplied string. Minimum length: 3",ExampleValue:"eri"
 }
 
-// PermissionsUsers Lists the users with their permissions as individual users rather than through group affiliation.<br />Requires one of the following permissions: 'Administer System', 'Administer' rights on the specified project
-func (s *PermissionsService) PermissionsUsers(opt *PermissionsUsersOption) (v *PermissionsUsersObject, resp *http.Response, err error) {
+// Users Lists the users with their permissions as individual users rather than through group affiliation.<br />Requires one of the following permissions: 'Administer System', 'Administer' rights on the specified project
+func (s *PermissionsService) Users(opt *PermissionsUsersOption) (v *PermissionsUsersObject, resp *http.Response, err error) {
 	err = s.ValidatePermissionsUsersOpt(opt)
 	if err != nil {
 		return
