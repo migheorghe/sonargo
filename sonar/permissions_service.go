@@ -41,6 +41,21 @@ type DefaultTemplate struct {
 	TemplateID string `json:"templateId,omitempty"`
 }
 
+type PermissionsUser struct {
+	Email      string   `json:"email,omitempty"`
+	Login      string   `json:"login,omitempty"`
+	Name       string   `json:"name,omitempty"`
+	Avatar     string   `json:"avatar,omitempty"`
+	Permission []string `json:"permissions,omitempty"`
+}
+
+type PermissionsUsersObject struct {
+	Users []*PermissionsUser `json:"users,omitempty"`
+	Total int                `json:"total,omitempty"`
+	P     int                `json:"p,omitempty"`
+	Ps    int                `json:"ps,omitempty"`
+}
+
 type PermissionsAddGroupOption struct {
 	GroupId    int    `url:"groupId,omitempty"`    // Description:"Group id",ExampleValue:"42"
 	GroupName  string `url:"groupName,omitempty"`  // Description:"Group name or 'anyone' (case insensitive)",ExampleValue:"sonar-administrators"
@@ -417,6 +432,33 @@ func (s *PermissionsService) UpdateTemplate(opt *PermissionsUpdateTemplateOption
 		return
 	}
 	v = new(PermissionsCreateTemplateObject)
+	resp, err = s.client.Do(req, v)
+	if err != nil {
+		return nil, resp, err
+	}
+	return
+}
+
+type PermissionsUsersOption struct {
+	ProjectId  string `url:"projectId,omitempty"`  // Description:"Project id",ExampleValue:"ce4c03d6-430f-40a9-b777-ad877c00aa4d"
+	ProjectKey string `url:"projectKey,omitempty"` // Description:"Project key",ExampleValue:"my_project"
+	Permission string `url:"permission,omitempty"` // Description:"Permission. Possible values for global permissions: admin, profileadmin, gateadmin, scan, provisioning. Possible values for project permissions admin, codeviewer, issueadmin, securityhotspotadmin, scan, user."
+	P          int    `url:"p,omitempty"`          // Description:"1-based page number",ExampleValue:"42"
+	Ps         int    `url:"ps,omitempty"`         // Description:"Page size. Must be greater than 0 and less or equal than 100",ExampleValue:"20"
+	Q          string `url:"q,omitempty"`          // Description:"Limit search to user names that contain the supplied string. Minimum length: 3",ExampleValue:"eri"
+}
+
+// PermissionsUsers Lists the users with their permissions as individual users rather than through group affiliation.<br />Requires one of the following permissions: 'Administer System', 'Administer' rights on the specified project
+func (s *PermissionsService) PermissionsUsers(opt *PermissionsUsersOption) (v *PermissionsUsersObject, resp *http.Response, err error) {
+	err = s.ValidatePermissionsUsersOpt(opt)
+	if err != nil {
+		return
+	}
+	req, err := s.client.NewRequest("POST", "permissions/users", opt)
+	if err != nil {
+		return
+	}
+	v = new(PermissionsUsersObject)
 	resp, err = s.client.Do(req, v)
 	if err != nil {
 		return nil, resp, err
