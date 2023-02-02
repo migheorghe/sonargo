@@ -128,10 +128,11 @@ func (s *PermissionsService) AddProjectCreatorToTemplate(opt *PermissionsAddProj
 }
 
 type PermissionsAddUserOption struct {
-	Login      string `url:"login,omitempty"`      // Description:"User login",ExampleValue:"g.hopper"
-	Permission string `url:"permission,omitempty"` // Description:"Permission<ul><li>Possible values for global permissions: admin, profileadmin, gateadmin, scan, provisioning</li><li>Possible values for project permissions admin, codeviewer, issueadmin, scan, user</li></ul>",ExampleValue:""
-	ProjectId  string `url:"projectId,omitempty"`  // Description:"Project id",ExampleValue:"ce4c03d6-430f-40a9-b777-ad877c00aa4d"
-	ProjectKey string `url:"projectKey,omitempty"` // Description:"Project key",ExampleValue:"my_project"
+	Organization string `url:"organization,omitempty` // Description:"Key of organization, used when group name is set",ExampleValue:"my-org"
+	Login        string `url:"login,omitempty"`       // Description:"User login",ExampleValue:"g.hopper"
+	Permission   string `url:"permission,omitempty"`  // Description:"Permission<ul><li>Possible values for global permissions: admin, profileadmin, gateadmin, scan, provisioning</li><li>Possible values for project permissions admin, codeviewer, issueadmin, scan, user</li></ul>",ExampleValue:""
+	ProjectId    string `url:"projectId,omitempty"`   // Description:"Project id",ExampleValue:"ce4c03d6-430f-40a9-b777-ad877c00aa4d"
+	ProjectKey   string `url:"projectKey,omitempty"`  // Description:"Project key",ExampleValue:"my_project"
 }
 
 // AddUser Add permission to a user.<br /> This service defaults to global permissions, but can be limited to project permissions by providing project id or project key.<br />Requires one of the following permissions:<ul><li>'Administer System'</li><li>'Administer' rights on the specified project</li></ul>
@@ -453,7 +454,7 @@ func (s *PermissionsService) Users(opt *PermissionsUsersOption) (v *PermissionsU
 	if err != nil {
 		return
 	}
-	req, err := s.client.NewRequest("POST", "permissions/users", opt)
+	req, err := s.client.NewRequest("GET", "permissions/users", opt)
 	if err != nil {
 		return
 	}
