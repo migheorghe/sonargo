@@ -440,12 +440,13 @@ func (s *PermissionsService) UpdateTemplate(opt *PermissionsUpdateTemplateOption
 }
 
 type PermissionsUsersOption struct {
-	ProjectId  string `url:"projectId,omitempty"`  // Description:"Project id",ExampleValue:"ce4c03d6-430f-40a9-b777-ad877c00aa4d"
-	ProjectKey string `url:"projectKey,omitempty"` // Description:"Project key",ExampleValue:"my_project"
-	Permission string `url:"permission,omitempty"` // Description:"Permission. Possible values for global permissions: admin, profileadmin, gateadmin, scan, provisioning. Possible values for project permissions admin, codeviewer, issueadmin, securityhotspotadmin, scan, user."
-	P          int    `url:"p,omitempty"`          // Description:"1-based page number",ExampleValue:"42"
-	Ps         int    `url:"ps,omitempty"`         // Description:"Page size. Must be greater than 0 and less or equal than 100",ExampleValue:"20"
-	Q          string `url:"q,omitempty"`          // Description:"Limit search to user names that contain the supplied string. Minimum length: 3",ExampleValue:"eri"
+	Organization string `url:"organization,omitempty"` // Descritpion:"Organization name",ExampleValue:"my_org"
+	ProjectId    string `url:"projectId,omitempty"`    // Description:"Project id",ExampleValue:"ce4c03d6-430f-40a9-b777-ad877c00aa4d"
+	ProjectKey   string `url:"projectKey,omitempty"`   // Description:"Project key",ExampleValue:"my_project"
+	Permission   string `url:"permission,omitempty"`   // Description:"Permission. Possible values for global permissions: admin, profileadmin, gateadmin, scan, provisioning. Possible values for project permissions admin, codeviewer, issueadmin, securityhotspotadmin, scan, user."
+	P            int    `url:"p,omitempty"`            // Description:"1-based page number",ExampleValue:"42"
+	Ps           int    `url:"ps,omitempty"`           // Description:"Page size. Must be greater than 0 and less or equal than 100",ExampleValue:"20"
+	Q            string `url:"q,omitempty"`            // Description:"Limit search to user names that contain the supplied string. Minimum length: 3",ExampleValue:"eri"
 }
 
 // PermissionsUsers Lists the users with their permissions as individual users rather than through group affiliation.<br />Requires one of the following permissions: 'Administer System', 'Administer' rights on the specified project
