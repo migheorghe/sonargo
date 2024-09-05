@@ -23,8 +23,10 @@ type Branch struct {
 }
 
 type Commit struct {
-	Sha    string  `json:"sha,omitempty"`
-	Author *Author `json:"author,omitempty"`
+	Sha     string  `json:"sha,omitempty"`
+	Author  *Author `json:"author,omitempty"`
+	Date    string  `json:"date,omitempty"`
+	Message string  `json:"message,omitempty"`
 }
 
 type Author struct {
