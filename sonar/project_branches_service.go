@@ -20,6 +20,7 @@ type Branch struct {
 	Type         string  `json:"type,omitempty"`
 	Commit       *Commit `json:"commit,omitempty"`
 	BranchId     string  `json:"branchId,omitempty"`
+	BranchUuidV1 string  `json:"branchUuidV1,omitempty"`
 }
 
 type Commit struct {
